@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import WeatherMainPage from './WeatherMainPage'
 
 const Search = () => {
 
@@ -6,6 +7,7 @@ const Search = () => {
     const [input, setInput] = useState('');
     const [query, setQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
+    const [selectedResult, setSelectedResult] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -41,6 +43,18 @@ const Search = () => {
         setQuery(input);
     }
 
+    const handleResultClick = (result) => {
+        setSelectedResult(result);
+    }
+
+    if (selectedResult) {
+        return (
+            <>
+                <WeatherMainPage result={selectedResult}/>
+            </>
+        )
+    }
+
     return (
         <>
             <input
@@ -52,7 +66,7 @@ const Search = () => {
             <button onClick={handleSearch}>Search</button>
             <ul>
                 {searchResults.map((result => (
-                    <li key={result.name}>{result.name}, {result.country}</li>
+                    <li key={result.name}><button onClick={() => handleResultClick(result)}>{result.name}, {result.country}</button></li>
                 )))}
             </ul>
         </>
