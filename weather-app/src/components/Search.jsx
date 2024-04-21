@@ -20,7 +20,7 @@ const Search = () => {
                     const response = await fetch(url);
                     const data = await response.json();
                     setSearchResults(data);
-                    console.log(searchResults);
+                    // console.log(searchResults);
                 // Clear search results if no query
                 } else {
                     setSearchResults([]);
