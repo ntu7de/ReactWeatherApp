@@ -14,7 +14,7 @@ const News = () => {
                 url.searchParams.append("api-key", API_KEY);
                 const response = await fetch(url);
                 const data = await response.json();
-                setResults(data.results);
+                setResults(data.results.slice(0,5));
             }
             catch (error) {
                 console.error('Error fetching data: ', error);
@@ -27,10 +27,10 @@ const News = () => {
     return (
         <>
             <div className="news">
-                {results.map((article) => {
+                {results.map(( article, index ) => {
                     return (
                         <>
-                            <Article article={article} />
+                            <Article article={article} key={index}/>
                         </>
                     )
                 })}
