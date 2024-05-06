@@ -1,0 +1,7 @@
+.article{
+    text-align: center;
+    max-width: "sm";
+    font-family:'Courier New', Courier, monospace;
+    /* flex: 200px; */
+    margin: 10px;
+}

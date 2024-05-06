@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Article from './Article'
 import '../styles/News.css'
+import { Box, grid } from '@mui/system';
 
 const News = () => {
 
@@ -15,6 +16,7 @@ const News = () => {
                 const response = await fetch(url);
                 const data = await response.json();
                 setResults(data.results.slice(0,5));
+                console.log(results);
             }
             catch (error) {
                 console.error('Error fetching data: ', error);
@@ -26,7 +28,7 @@ const News = () => {
 
     return (
         <>
-            <div className="news">
+            <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)' }}>
                 {results.map(( article ) => {
                     return (
                         <div key={article.title}>
@@ -34,7 +36,7 @@ const News = () => {
                         </div>
                     )
                 })}
-            </div>
+            </Box>
         </>
     )
 }

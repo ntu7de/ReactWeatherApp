@@ -1,7 +1,6 @@
 .news{
-    text-align: center;
-    max-width: "sm";
-    border-color: white;
-    border-width: 200px;
-    border-radius: 10px;
+    /* MUI Approach */
+    display: grid;
+    grid-template-columns: 'repeat(2, 1fr)';
+    border-color: black;
 }
