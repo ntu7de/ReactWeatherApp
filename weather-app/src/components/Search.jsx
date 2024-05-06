@@ -8,6 +8,7 @@ const Search = () => {
     const [query, setQuery] = useState('');
     const [searchResults, setSearchResults] = useState([]);
     const [selectedResult, setSelectedResult] = useState(null);
+    // Try to add state that keeps track of whether search result has a "state"
 
     useEffect(() => {
         const fetchData = async () => {
@@ -20,6 +21,7 @@ const Search = () => {
                     const response = await fetch(url);
                     const data = await response.json();
                     setSearchResults(data);
+                    console.log(searchResults[3].state);
                     // console.log(searchResults);
                 // Clear search results if no query
                 } else {
@@ -66,7 +68,11 @@ const Search = () => {
             <button onClick={handleSearch}>Search</button>
             <ul>
                 {searchResults.map((result => (
-                    <li key={result.name}><button onClick={() => handleResultClick(result)}>{result.name}, {result.country}</button></li>
+                    <li key={result.lat}>
+                        <button onClick={() => handleResultClick(result)}>
+                            {result.name}{result.state ? `, ${result.state}` : ''}, {result.country}
+                        </button>
+                    </li>
                 )))}
             </ul>
         </>
