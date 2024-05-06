@@ -49,10 +49,13 @@ const DailyWeather = ({ lat, lon }) => {
                         
                 </Box> */}
                 <Box sx={{ 
-                            display: 'flex', 
-                            gap: 4,
-                            overflowX: 'auto',
-                            flexWrap: 'nowrap' }}
+                    display: 'flex', 
+                    gap: 4,
+                    overflowX: 'auto',
+                    flexWrap: 'nowrap',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}  
                 >
                     {results.list && results.list.map(( forecast ) => {
                         return (
