@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react'
 import Article from './Article'
 import '../styles/News.css'
-import { Box } from '@mui/system';
 
 const News = () => {
 
@@ -16,7 +15,7 @@ const News = () => {
                 const response = await fetch(url);
                 const data = await response.json();
                 setResults(data.results.slice(0,5));
-                console.log(results);
+                // console.log(results);
             }
             catch (error) {
                 console.error('Error fetching data: ', error);

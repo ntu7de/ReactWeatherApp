@@ -20,7 +20,7 @@ const WeatherMainPage = ({ result }) => {
                 <Box className='header' sx={{ gridArea: 'header'}}><h1>
                     {result.name}{result.state ? `, ${result.state}` : ""}</h1>
                 </Box>
-                <Box sx={{ gridArea: 'current-weather', bgcolor: 'blue'}}>
+                <Box sx={{ gridArea: 'current-weather'}}>
                     <CurrentWeather lat={result.lat} lon={result.lon}/>
                 </Box>
                 <Box sx={{ gridArea: 'daily-weather', bgcolor: 'yellow'}}>Daily Weather here</Box>
