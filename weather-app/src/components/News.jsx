@@ -28,7 +28,7 @@ const News = () => {
 
     return (
         <>
-            <Box className="news" sx={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)' }}>
+            <div>
                 {results.map(( article ) => {
                     return (
                         <div key={article.title}>
@@ -36,7 +36,7 @@ const News = () => {
                         </div>
                     )
                 })}
-            </Box>
+            </div>
         </>
     )
 }

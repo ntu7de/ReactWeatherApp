@@ -9,7 +9,9 @@ const CurrentWeather = ({ lat, lon }) => {
         const fetchData = async () => {
             try {
                 // const url = new URL("https://api.openweathermap.org/data/2.5/onecall?");
-                const url = new URL("https://api.openweathermap.org/data/2.5/weather?");
+                // const url = new URL("https://api.openweathermap.org/data/2.5/weather?");
+                // const url = new URL("https://pro.openweathermap.org/data/2.5/forecast/hourly?");
+                const url = new URL("https://api.openweathermap.org/data/2.5/forecast/daily?");
                 url.searchParams.append("lat", lat);
                 url.searchParams.append("lon", lon);
                 url.searchParams.append("appid", API_KEY);
@@ -18,7 +20,7 @@ const CurrentWeather = ({ lat, lon }) => {
                 setResults(data);
                 // console.log(results.main.temp);  
                 // console.log(data);
-                // console.log(results);
+                console.log(results);
             }
             catch (error) {
                 console.error('Error fetching data: ', error);
@@ -36,8 +38,8 @@ const CurrentWeather = ({ lat, lon }) => {
     return (
         <>
             <p>{results.main ? `Current Temperature: ${formatToFarenheit(results.main.temp)}` : ''}&deg;F</p>
-            <p>{lat}</p>
-            <p>{lon}</p>
+            <p>JTLKSDAJFLKSDJFLKASJFDLAKSFJLKJ</p>
+            <p>lfjldkfjlskjFLKDSJFLKDSJFLK</p>
         </>
     )
 }
