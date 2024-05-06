@@ -21,7 +21,7 @@ const Search = () => {
                     const response = await fetch(url);
                     const data = await response.json();
                     setSearchResults(data);
-                    console.log(searchResults[3].state);
+                    // console.log(searchResults[3].state);
                     // console.log(searchResults);
                 // Clear search results if no query
                 } else {

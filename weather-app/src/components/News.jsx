@@ -27,11 +27,11 @@ const News = () => {
     return (
         <>
             <div className="news">
-                {results.map(( article, index ) => {
+                {results.map(( article ) => {
                     return (
-                        <>
-                            <Article article={article} key={index}/>
-                        </>
+                        <div key={article.title}>
+                            <Article article={article}/>
+                        </div>
                     )
                 })}
             </div>
