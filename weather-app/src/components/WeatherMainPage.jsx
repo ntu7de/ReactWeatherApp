@@ -1,4 +1,5 @@
 import CurrentWeather from './CurrentWeather'
+import DailyWeather from './DailyWeather'
 import News from './News'
 import { Box } from '@mui/system';
 import '../styles/WeatherMainPage.css'
@@ -23,7 +24,9 @@ const WeatherMainPage = ({ result }) => {
                 <Box sx={{ gridArea: 'current-weather'}}>
                     <CurrentWeather lat={result.lat} lon={result.lon}/>
                 </Box>
-                <Box sx={{ gridArea: 'daily-weather', bgcolor: 'yellow'}}>Daily Weather here</Box>
+                <Box sx={{ gridArea: 'daily-weather'}}>
+                    <DailyWeather lat={result.lat} lon={result.lon}/>
+                </Box>
                 <Box sx={{ gridArea: 'hourly-weather', bgcolor: 'purple'}}>Hourly Weather here</Box>
                 <Box className='news' sx={{ gridArea: 'news'}}>
                     <News />

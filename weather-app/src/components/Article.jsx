@@ -1,6 +1,7 @@
 import '../styles/Article.css'
 
 const Article = ({ article }) => {
+
     return (
         <div className="article">
             <h4>{article.title}</h4>
