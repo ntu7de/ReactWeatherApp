@@ -2,5 +2,6 @@
     /* MUI Approach */
     display: grid;
     grid-template-columns: 'repeat(2, 1fr)';
-    border-color: black;
+    /* background-color: blue; */
+    /* border-radius: 20px; */
 }

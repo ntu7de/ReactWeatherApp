@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import Article from './Article'
 import '../styles/News.css'
-import { Box, grid } from '@mui/system';
+import { Box } from '@mui/system';
 
 const News = () => {
 
@@ -28,7 +28,7 @@ const News = () => {
 
     return (
         <>
-            <Box sx={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)' }}>
+            <Box className="news" sx={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)' }}>
                 {results.map(( article ) => {
                     return (
                         <div key={article.title}>
