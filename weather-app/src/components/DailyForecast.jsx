@@ -1,4 +1,5 @@
 import '../styles/DailyForecast.css'
+import { Box } from '@mui/system';
 
 const DailyForecast = ({ forecast }) => {
 
@@ -15,17 +16,35 @@ const DailyForecast = ({ forecast }) => {
         return daysOfWeek[dayIndex];
     }
     
+    console.log(forecast);
+
     return (
-        <div className="daily-forecast">
-            <p>{formatDateTime(forecast.dt)}</p>
-            {forecast.weather && forecast.weather[0] && (
-                <img
-                    src={`http://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`}
-                    alt={forecast.weather[0].description}
-                />
-            )}
-            <p className="temp">{formatToFarenheit(forecast.temp.day)}&deg;</p>
-        </div>
+        <Box className='daily-forecast' sx={{ 
+            display: 'grid', 
+            gap: 3,
+            gridTemplateColumns: "auto auto auto auto",
+            gridTemplateRows: 'auto',   
+        }}
+        >
+            <Box>
+                <p>{formatDateTime(forecast.dt)}</p>
+            </Box>
+            <Box>
+                {forecast.weather && forecast.weather[0] && (
+                        <img
+                            src={`http://openweathermap.org/img/wn/${forecast.weather[0].icon}.png`}
+                            alt={forecast.weather[0].description}
+                            className='daily-weather-icon'
+                        />
+                )}
+            </Box>
+            <Box>
+                <p>Lo: {formatToFarenheit(forecast.temp.min)}&deg;</p>
+            </Box>
+            <Box>
+                <p>Hi: {formatToFarenheit(forecast.temp.max)}&deg;</p>
+            </Box>
+        </Box>
     )
 }
 

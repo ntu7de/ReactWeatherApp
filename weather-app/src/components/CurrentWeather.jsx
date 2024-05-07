@@ -30,7 +30,7 @@ const CurrentWeather = ({ lat, lon }) => {
     const formatToFarenheit = (temp) => {
         return parseInt((temp - 273.15) * (9/5) + 32)
     }
-    
+
     return (
         <div className="current-weather">
             <h2>Current Weather</h2>
@@ -39,7 +39,6 @@ const CurrentWeather = ({ lat, lon }) => {
                     gap: 4,
                     overflowX: 'auto',
                     flexWrap: 'nowrap',
-                    alignItems: 'center',
                     justifyContent: 'center'
                 }}
             >
