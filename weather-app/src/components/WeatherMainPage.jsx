@@ -31,7 +31,7 @@ const WeatherMainPage = ({ result }) => {
                 <Box sx={{ gridArea: 'hourly-weather'}}>
                     <HourlyWeather lat={result.lat} lon={result.lon}/>
                 </Box>
-                <Box className='news' sx={{ gridArea: 'news'}}>
+                <Box sx={{ gridArea: 'news'}}>
                     <News />
                 </Box>
             </Box>

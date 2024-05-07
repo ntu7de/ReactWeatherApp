@@ -1,7 +1,11 @@
-.news{
-    display: grid;
-    grid-template-columns: 'repeat(2, 1fr)';
-    background-color: #E57200;
+.news {
+    background-color: rgba(255, 255, 255, 0.87);
+    padding: 10px;
+    color: #232D4B;
     border-radius: 20px;
-    margin-right: 100px;
+    text-align: center;
+    margin-top: 0px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    margin-right: 200px;
 }

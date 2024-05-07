@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import Article from './Article'
 import '../styles/News.css'
+import { Box } from '@mui/system';
 
 const News = () => {
 
@@ -26,7 +27,7 @@ const News = () => {
 
     return (
         <>
-            <div>
+            <Box sx={{ maxHeight: '702px', overflowY: 'auto' }}>
                 {results.map(( article ) => {
                     return (
                         <div key={article.title}>
@@ -34,7 +35,7 @@ const News = () => {
                         </div>
                     )
                 })}
-            </div>
+            </Box>
         </>
     )
 }
