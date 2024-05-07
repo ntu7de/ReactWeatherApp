@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react'
-import '../styles/DailyWeather.css'
-import DailyForecast from './DailyForecast'
+import '../styles/HourlyWeather.css'
+import HourlyForecast from './HourlyForecast'
 import { Box } from '@mui/system';
 
-const DailyWeather = ({ lat, lon }) => {
+const HourlyWeather = ({ lat, lon }) => {
     
     const API_KEY = import.meta.env.VITE_ONECALL_KEY;
     const [results, setResults] = useState([]);
@@ -11,14 +11,14 @@ const DailyWeather = ({ lat, lon }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const url = new URL("https://api.openweathermap.org/data/2.5/forecast/daily?");
+                const url = new URL("https://pro.openweathermap.org/data/2.5/forecast/hourly?");
                 url.searchParams.append("lat", lat);
                 url.searchParams.append("lon", lon);
                 url.searchParams.append("appid", API_KEY);
                 const response = await fetch(url);
                 const data = await response.json();
                 setResults(data);
-                // console.log(results.list);
+                console.log(results.list[0]);
             }
             catch (error) {
                 console.error('Error fetching data: ', error);
@@ -31,21 +31,19 @@ const DailyWeather = ({ lat, lon }) => {
 
     return (
         <>
-            <div className="daily-weather">
-                <h2>7-Day Forecast</h2>
+            <div className="hourly-weather">
+                <h2>Hourly Forecast</h2>
                 <Box sx={{ 
-                    display: 'flex', 
-                    gap: 4,
-                    overflowX: 'auto',
-                    flexWrap: 'nowrap',
+                    display: 'grid', 
+                    gap: 1,
                     alignItems: 'center',
                     justifyContent: 'center'
                 }}  
                 >
-                    {results.list && results.list.map(( forecast ) => {
+                    {results.list && results.list.slice(0,24).map(( forecast ) => {
                         return (
                             <Box key={forecast.dt}>
-                                <DailyForecast forecast={forecast}/>
+                                <HourlyForecast forecast={forecast}/>
                             </Box>
                         )
                     })}
@@ -55,4 +53,4 @@ const DailyWeather = ({ lat, lon }) => {
     )
 }
 
-export default DailyWeather
+export default HourlyWeather
