@@ -7,7 +7,7 @@ import '../styles/WeatherMainPage.css'
 
 
 const WeatherMainPage = ({ result }) => {
-    
+
     return (
         <>
             <Box sx={{ 

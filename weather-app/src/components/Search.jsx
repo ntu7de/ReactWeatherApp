@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import WeatherMainPage from './WeatherMainPage'
+import '../styles/Search.css'
+import { Box } from '@mui/system';
 
 const Search = () => {
 
@@ -47,6 +49,12 @@ const Search = () => {
         setSelectedResult(result);
     }
 
+    const handleKeyDown = (event) => {
+        if (event.key === 'Enter') {
+            handleSearch();
+        }
+    }
+
     if (selectedResult) {
         return (
             <>
@@ -57,22 +65,39 @@ const Search = () => {
 
     return (
         <>
-            <input
-                type="text"
-                placeholder="Search..."
-                value={input} 
-                onChange={handleInputChange}    
-            />
-            <button onClick={handleSearch}>Search</button>
-            <ul>
-                {searchResults.map((result => (
-                    <li key={result.lat}>
-                        <button onClick={() => handleResultClick(result)}>
-                            {result.name}{result.state ? `, ${result.state}` : ''}, {result.country}
-                        </button>
-                    </li>
-                )))}
-            </ul>
+            <Box sx={{ 
+                display: 'grid',
+                gridTemplateColumns: 'repeat(3, 1fr)',
+                gridTemplateRows: 'auto',
+                gridTemplateAreas: `"bar bar bar"
+                "button .  . "
+                " results . . "`,
+            }}>
+                <Box>
+                    <input className='search-bar'
+                        sx={{ gridArea: 'bar'}}
+                        type="text"
+                        placeholder="Search..."
+                        value={input} 
+                        onChange={handleInputChange}  
+                        onKeyDown={handleKeyDown}
+                    />
+                </Box>
+                {/* <Box sx={{ gridArea: 'button'}}>
+                    <button className= 'search-button' onClick={handleSearch}>Search</button>
+                </Box> */}
+                <Box sx={{ gridArea: 'results'}}>
+                    <ul>
+                        {searchResults.map((result => (
+                            <li key={result.lat}>
+                                <button className='search-result' onClick={() => handleResultClick(result)}>
+                                    {result.name}{result.state ? `, ${result.state}` : ''}, {result.country}
+                                </button>
+                            </li>
+                        )))}
+                    </ul>
+                </Box>
+            </Box>
         </>
     )
 

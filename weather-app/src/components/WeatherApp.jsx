@@ -1,7 +1,14 @@
 import Search from './Search'
 import '../styles/WeatherApp.css'
+import { useState } from 'react';
 
 const WeatherApp = () => {
+
+    // const [showWeatherMainPage, setShowWeatherMainPage] = useState(true);
+    
+    // const handleBackButtonClick = () => {
+    //     setShowWeatherMainPage(false);
+    // };
 
     return (
         <>
