@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react'
 import '../styles/DailyWeather.css'
 import DailyForecast from './DailyForecast'
 import { Box } from '@mui/system';
+import Divider from '@mui/material/Divider';
+
 
 const DailyWeather = ({ lat, lon }) => {
     
@@ -39,10 +41,13 @@ const DailyWeather = ({ lat, lon }) => {
                     justifyContent: 'center'
                 }}  
                 >
-                    {results.list && results.list.map(( forecast ) => {
+                    {results.list && results.list.map(( forecast, index ) => {
                         return (
                             <Box key={forecast.dt}>
                                 <DailyForecast forecast={forecast}/>
+                                {index < results.list.length - 1 && <Divider
+                                    sx={{ bgcolor: '#232D4B' }}
+                                />}
                             </Box>
                         )
                     })}

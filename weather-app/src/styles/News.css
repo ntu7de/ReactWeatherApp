@@ -3,4 +3,5 @@
     grid-template-columns: 'repeat(2, 1fr)';
     background-color: #E57200;
     border-radius: 20px;
+    margin-right: 100px;
 }
