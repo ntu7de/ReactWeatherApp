@@ -17,9 +17,6 @@ const CurrentWeather = ({ lat, lon }) => {
                 const response = await fetch(url);
                 const data = await response.json();
                 setResults(data);
-                // console.log(results.main.temp);  
-                // console.log(data);
-                // console.log(results);
             }
             catch (error) {
                 console.error('Error fetching data: ', error);
@@ -33,9 +30,7 @@ const CurrentWeather = ({ lat, lon }) => {
     const formatToFarenheit = (temp) => {
         return parseInt((temp - 273.15) * (9/5) + 32)
     }
-
-    console.log(results);
-
+    
     return (
         <div className="current-weather">
             <h2>Current Weather</h2>

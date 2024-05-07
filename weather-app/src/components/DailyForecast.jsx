@@ -2,7 +2,6 @@ import '../styles/DailyForecast.css'
 
 const DailyForecast = ({ forecast }) => {
 
-    // console.log(forecast.temp.day);
     const formatToFarenheit = (temp) => {
         return parseInt((temp - 273.15) * (9/5) + 32)
     }

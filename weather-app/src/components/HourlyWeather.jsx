@@ -18,7 +18,6 @@ const HourlyWeather = ({ lat, lon }) => {
                 const response = await fetch(url);
                 const data = await response.json();
                 setResults(data);
-                console.log(results.list[0]);
             }
             catch (error) {
                 console.error('Error fetching data: ', error);
@@ -34,10 +33,12 @@ const HourlyWeather = ({ lat, lon }) => {
             <div className="hourly-weather">
                 <h2>Hourly Forecast</h2>
                 <Box sx={{ 
-                    display: 'grid', 
-                    gap: 1,
+                    display: 'flex', 
+                    gap: 4,
+                    overflowX: 'auto',
+                    flexWrap: 'nowrap',
                     alignItems: 'center',
-                    justifyContent: 'center'
+                    justifyContent: 'flex-start'
                 }}  
                 >
                     {results.list && results.list.slice(0,24).map(( forecast ) => {

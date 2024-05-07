@@ -16,8 +16,8 @@ const WeatherMainPage = ({ result }) => {
                 gap: 1,
                 gridTemplateRows: 'auto',
                 gridTemplateAreas: `"header header header header"
-                "current-weather current-weather daily-weather daily-weather"
-                "hourly-weather hourly-weather news news"` }}
+                "current-weather current-weather hourly-weather hourly-weather"
+                "daily-weather daily-weather news news"` }}
             >
                 <Box className='header' sx={{ gridArea: 'header'}}><h1>
                     {result.name}{result.state ? `, ${result.state}` : ""}</h1>
