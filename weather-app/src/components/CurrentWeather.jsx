@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import '../styles/CurrentWeather.css'
+import { Box } from '@mui/system';
 
 const CurrentWeather = ({ lat, lon }) => {
     
@@ -33,12 +34,36 @@ const CurrentWeather = ({ lat, lon }) => {
         return parseInt((temp - 273.15) * (9/5) + 32)
     }
 
+    console.log(results);
+
     return (
         <div className="current-weather">
             <h2>Current Weather</h2>
-            <div className="temp">{results.main ? `${formatToFarenheit(results.main.temp)}` : ''}&deg;F</div>
-            <p className="weather-main">{results.main ? `${results.weather[0].main}` : ''}</p>
-            <p>{results.main ? `${results.weather[0].description}` : ''}</p>
+            <Box sx={{ 
+                    display: 'flex', 
+                    gap: 4,
+                    overflowX: 'auto',
+                    flexWrap: 'nowrap',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                }}
+            >
+                <Box>
+                    <p className="temperature">{results.main ? `${formatToFarenheit(results.main.temp)}` : ''}&deg;F</p>
+                </Box>
+                <Box></Box>
+                <Box>
+                    {results.weather && results.weather[0] && (
+                        <img
+                            src={`http://openweathermap.org/img/wn/${results.weather[0].icon}.png`}
+                            alt={results.weather[0].description}
+                            className="weather-icon"
+                        />
+                    )}
+                    {/* <p>{results.main ? `${results.weather[0].description}` : ''}</p> */}
+                    <p className="weather-main">{results.main ? `${results.weather[0].main}` : ''}</p>
+                </Box>
+            </Box> 
         </div>
     )
 }

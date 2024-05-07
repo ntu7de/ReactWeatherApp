@@ -34,20 +34,6 @@ const DailyWeather = ({ lat, lon }) => {
         <>
             <div className="daily-weather">
                 <h2>7-Day Forecast</h2>
-                {/* <Box sx={{ 
-                            display: 'flex', 
-                            gap: 1,
-                            overflowX: 'auto',
-                            flexWrap: 'nowrap' }}
-                >
-                    <Box>
-                        <p>Yup</p>
-                    </Box>
-                    <Box>
-                        <p>Yup</p>
-                    </Box>
-                        
-                </Box> */}
                 <Box sx={{ 
                     display: 'flex', 
                     gap: 4,
